@@ -1,0 +1,55 @@
+/* Estilos para el contenedor principal */
+.principal {
+    background-image: url("../Images/Principal-Background2.jpg"); /* Fondo de imagen para principal*/
+    background-size: cover; /* Fondo de imagen completa */
+}
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide el contenedor en dos columnas del mismo ancho */
+    gap: 1rem; /* Agrega espacio entre las dos columnas */
+    justify-items: center; /* Centra los elementos horizontalmente dentro de las columnas */
+    align-items: center; /* Centra los elementos verticalmente dentro del contenedor */
+    height: 100vh; /* Establece la altura del contenedor al 100% de la altura del viewport */
+  }
+  
+  /* Estilos para el contenedor del CodeEditor */
+  .code-editor {
+    background-color: rgba(255, 255, 255, 0.5); /* Para la transparencia */
+    backdrop-filter: blur(3px); /* Para el desenfoque del textarea */
+    flex: 1; /* Ocupar todo el espacio restante */
+    padding: 1rem; /* Espaciado interno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    position: relative; /* Posición relativa para el número de línea */
+  }
+  
+  /* Estilos para el textarea del CodeEditor */
+  .code-textarea {
+    background-color: rgba(255, 255, 255, 0.5); /* Para la transparencia */
+    backdrop-filter: blur(3px); /* Para el desenfoque del textarea */
+    width: 100%; /* Ancho al 100% */
+    resize: none; /* Deshabilitar el redimensionamiento */
+    border: solid; /* Sin borde */
+    padding: 1rem; /* Espaciado interno */
+    background-color: transparent; /* Fondo transparente */
+  }
+  
+  /* Estilos para el contenedor de la Console */
+  .console {
+    background-color: rgba(255, 255, 255, 0.5); /* Para la transparencia */
+    backdrop-filter: blur(3px); /* Para el desenfoque del textarea */
+    flex: 1; /* Ocupar todo el espacio restante */
+    padding: 1rem; /* Espaciado interno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+  }
+  
+  /* Estilos para el textarea de la Console */
+  .console-textarea {
+    background-color: rgba(255, 255, 255, 0.5); /* Para la transparencia */
+    backdrop-filter: blur(3px); /* Para el desenfoque del textarea */
+    width: 100%; /* Ancho al 100% */
+    resize: none; /* Deshabilitar el redimensionamiento */
+    border: solid; /* Sin borde */
+    padding: 1rem; /*Espaciado interno */
+    background-color: transparent; /* Fondo transparente */
+  }
+  
