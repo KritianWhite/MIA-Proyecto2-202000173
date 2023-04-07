@@ -3,6 +3,7 @@
     background-image: url("../Images/Principal-Background2.jpg"); /* Fondo de imagen para principal*/
     background-size: cover; /* Fondo de imagen completa */
 }
+
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Divide el contenedor en dos columnas del mismo ancho */
@@ -52,4 +53,5 @@
     padding: 1rem; /*Espaciado interno */
     background-color: transparent; /* Fondo transparente */
   }
+
   
