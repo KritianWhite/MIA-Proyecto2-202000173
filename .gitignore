@@ -1,1 +1,5 @@
 Front-end/node_modules/
+/Reportes
+/vendor
+go.mod 
+go.sum
