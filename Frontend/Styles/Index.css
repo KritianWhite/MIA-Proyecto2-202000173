@@ -1,3 +1,68 @@
+.home {
+  background-image: url("../Images/Home-Background.jpg"); /* Fondo de imagen para principal*/
+  background-size: cover; /* Fondo de imagen completa */
+}
+
+.container-home {
+  display: flex; /* Para que los elementos se muestren en fila */
+  justify-content: center; /* Centrar los elementos */
+  background-color: rgba(255, 255, 255, 0.5); /* Para la transparencia */
+  backdrop-filter: blur(3px); /* Para el desenfoque del textarea */
+  flex: 1; /* Ocupar todo el espacio restante */
+  padding: 1rem; /* Espaciado interno */
+  gap: 2rem; /* Agrega espacio entre las dos columnas */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+  position: relative; /* Posición relativa para el número de línea */
+  border-radius: 10px;
+}
+
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.btn-home {
+  border: none;
+  color: #000;
+}
+.btn-home:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: -1;
+  box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+  transition: all 0.3s ease;
+}
+.btn-home:hover {
+  color: #000;
+}
+.btn-home:hover:after {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+.btn-home:active {
+  top: 2px;
+}
+
 /* Estilos para el contenedor principal */
 .editores {
   background-image: url("../Images/Principal-Background2.jpg"); /* Fondo de imagen para principal*/
@@ -61,6 +126,82 @@
   background-color: #38a169;
 }
 
+.btn-editores-home {
+  background: rgb(0, 172, 238);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 172, 238, 1) 0%,
+    rgba(2, 126, 251, 1) 100%
+  );
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  position: absolute;
+  top: 2%;
+  left: 2%;
+}
+.btn-editores-home span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-editores-home:before,
+.btn-editores-home:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  background: rgb(255, 255, 255);
+  transition: all 0.3s ease;
+}
+.btn-editores-home:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-editores-home:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-editores-home:hover {
+  background: transparent;
+  box-shadow: none;
+}
+.btn-editores-home:hover:before {
+  height: 100%;
+}
+.btn-editores-home:hover:after {
+  width: 100%;
+}
+.btn-editores-home span:hover {
+  color: rgb(255, 255, 255);
+}
+.btn-editores-home span:before,
+.btn-editores-home span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  background: rgb(255, 255, 255);
+  transition: all 0.3s ease;
+}
+.btn-editores-home span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-editores-home span:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-editores-home span:hover:before {
+  height: 100%;
+}
+.btn-editores-home span:hover:after {
+  width: 100%;
+}
+
 .login-container {
   display: flex;
   justify-content: center;
@@ -114,12 +255,134 @@ button:hover {
   background-color: #cccccc;
 }
 
-.reportes{
+.btn-login-home {
+  background: rgb(0, 172, 238);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 172, 238, 1) 0%,
+    rgba(2, 126, 251, 1) 100%
+  );
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  position: absolute;
+  top: 2%;
+  left: 2%;
+}
+.btn-login-home span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-login-home:before,
+.btn-login-home:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  background: rgb(0, 0, 0);
+  transition: all 0.3s ease;
+}
+.btn-login-home:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-login-home:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-login-home:hover {
+  background: transparent;
+  box-shadow: none;
+}
+.btn-login-home:hover:before {
+  height: 100%;
+}
+.btn-login-home:hover:after {
+  width: 100%;
+}
+.btn-login-home span:hover {
+  color: rgb(0, 0, 0);
+}
+.btn-login-home span:before,
+.btn-login-home span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  transition: all 0.3s ease;
+}
+.btn-login-home span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-login-home span:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-login-home span:hover:before {
+  height: 100%;
+}
+.btn-login-home span:hover:after {
+  width: 100%;
+}
+
+.btn-editor-login {
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  background: rgb(255, 27, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 27, 0, 1) 0%,
+    rgba(251, 75, 2, 1) 100%
+  );
+  position: absolute;
+  top: 2%;
+  right: 2%;
+}
+.btn-editor-login:hover {
+  color: #f0094a;
+  background: transparent;
+  box-shadow: none;
+}
+.btn-editor-login:before,
+.btn-editor-login:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #f0094a;
+  box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003,
+    4px 4px 5px 0px #0002;
+  transition: 400ms ease all;
+}
+.btn-editor-login:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+.btn-editor-login:hover:before,
+.btn-editor-login:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
+
+.reportes {
   background-image: url("../Images/Principal-Background.jpg"); /* Fondo de imagen para principal*/
   background-size: cover; /* Fondo de imagen completa */
 }
 
-.titulo-report{
+.titulo-report {
   font-size: 50px; /* Tamaño de fuente */
   font-weight: bold; /* Grosor de fuente */
   color: #ffffff; /* Color del texto */
@@ -131,8 +394,14 @@ button:hover {
 
 .container-reports {
   display: grid; /* Para que los elementos se muestren en fila */
-  grid-template-columns: repeat(2,1fr); /* Agrega espacio entre las dos columnas */
-  grid-template-rows: repeat(2,1fr); /* Agrega espacio entre las dos columnas */
+  grid-template-columns: repeat(
+    2,
+    1fr
+  ); /* Agrega espacio entre las dos columnas */
+  grid-template-rows: repeat(
+    2,
+    1fr
+  ); /* Agrega espacio entre las dos columnas */
   width: 100%; /* Altura del contenedor principal */
 }
 
@@ -151,6 +420,6 @@ button:hover {
 
 .container-ejecutar-rep {
   display: flex;
-	align-items: center;
+  align-items: center;
   padding: 1rem;
 }

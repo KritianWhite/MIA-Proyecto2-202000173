@@ -15,12 +15,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals.js";
-import Index from "./Pages";
+import Index from "./Pages/Home.js";
+import Principal from "./Pages/Editores.js";
+import Login from "./Pages/Login.js";
+import Routes from "./Services/Routes.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Index />
+    {/* <Index /> */}
+    {/* <Principal /> */}
+    {/* <Login /> */}
+    <Routes />
   </React.StrictMode>
 );
 

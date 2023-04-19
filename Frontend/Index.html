@@ -19,24 +19,36 @@
 </head>
 
 <body>
-    <div class="Editores" style="display: block;">
+
+    <div id="home" class="home" style="display: block">
+        <div class="container">
+            <div class="container-home">
+                <button id="btn-principal" class="custom-btn btn-home">Principal</button>
+                <button id="btn-login" class="custom-btn btn-home">Login</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="Editores" class="Editores" style="display: none;">
 
         <div class="principal">
             <div class="editores">
                 <div class="container">
+                    <button id="btn-editores-home" class="custom-btn btn-editores-home"><span>Home</span></button>
+                    <button id="btn-editor-login" class="custom-btn btn-editor-login"><span>Login</span></button>
                     <div class="code-editor">
                         <h2>Editor de código</h2>
                         <textarea rows="20" cols="80" id="code-textarea" class="code-textarea"></textarea>
-                        <input id="input-archivo" class="form-control form-control-lg" id="formFileLg"
-                            type="file" />
+                        <input id="input-archivo" class="form-control form-control-lg" id="formFileLg" type="file" />
                     </div>
 
                     <div class="console">
                         <h2>Consola</h2>
-                        <textarea rows="20" cols="80" id="console-textarea" class="console-textarea" readonly></textarea>
+                        <textarea rows="20" cols="80" id="console-textarea" class="console-textarea"
+                            readonly></textarea>
                         <div class="d-grid gap-2">
-                            <button class="btn-ejecutar" type="button" class="btn btn-light"
-                                onClick="enviarData()">
+                            <button class="btn-ejecutar" type="button" class="btn btn-light" onClick="enviarData()">
                                 Ejecutar
                             </button>
                         </div>
@@ -47,9 +59,10 @@
 
     </div>
 
-    <div class="login" style="display: none;">
+    <div id="login" class="login" style="display: none;">
 
         <div class="login-container">
+            <button id="btn-login-editores" class="custom-btn btn-login-home"><span>Editores</span></button>
             <form onSubmit={handleSubmit}>
                 <h1>Iniciar sesión</h1>
                 <label htmlFor="id">ID Particion:</label>
@@ -58,18 +71,19 @@
                 <input type="text" id="email" required />
                 <label htmlFor="password">Contraseña:</label>
                 <input type="password" id="password" required />
-                <button type="submit" >Iniciar sesión</button>
-                <button type="submit">Cerrar Sesion</button>
+                <button id="btn-ingresar" type="submit">Iniciar sesión</button>
             </form>
         </div>
 
     </div>
 
-    <div class="reportes" style="display: block;">
+    <div id="reportes" class="reportes" style="display: block;">
 
         <h1 class="titulo-report">REPORTES</h1>
+        <button id="btnxx" class="custom-btn btn-editores-home"><span>Editores</span></button>
         <div class="container-ejecutar-rep">
-            <input id="input-rep" class="form-control form-control-lg" type="text" placeholder="Ingresar comando Rep" aria-label=".form-control-lg example">
+            <input id="input-rep" class="form-control form-control-lg" type="text" placeholder="Ingresar comando Rep"
+                aria-label=".form-control-lg example">
             <button id="ejecutar-rep" type="button" class="btn btn-light" onclick="enviarRep()">Ejecutar</button>
         </div>
         <div class="container-reports">
@@ -93,7 +107,9 @@
 
     </div>
 
-    <script src="./src/Main.js"></script>
+    <!-- <script type="module" src="./src/Navegacion.js"></script>
+    <script src="./src/Main.js"></script> -->
+    <script src="./src/Navegacion.js"></script>
 
 </body>
 
