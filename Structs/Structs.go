@@ -2,12 +2,9 @@ package Structs
 
 // Structs de administrador
 type Resp struct {
-	Res string  `json:"res"`
-	U   Usuario `json:"usuario"`
-	Dot1 string  `json:"dot1"`
-	Dot2 string  `json:"dot2"`
-	Dot3 string  `json:"dot3"`
-	Dot4 string  `json:"dot4"`
+    Res string  `json:"res"`
+    U   Usuario `json:"usuario"`
+    Dot string  `json:"dot"`
 }
 
 type Bandera struct {

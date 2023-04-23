@@ -12,12 +12,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
-
 	"github.com/gorilla/mux"
 )
-
-var dot_1 string
-var dot_2 string
 
 func main() {
 	fmt.Println("Inicio")
@@ -79,9 +75,6 @@ func main() {
 			Login:   entrada.Login,
 		}
 		respuesta := ""
-		
-		// dot3 := ""
-		// dot4 := ""
 		for _, s := range entrada.Commands {
 			fmt.Println(s)
 			if s == "pause" {
@@ -93,16 +86,11 @@ func main() {
 			}
 			eje := Files_System.Lector(s)
 			if eje.Res != "" {
-				respuesta += strconv.Itoa(entrada.I) + ")" + eje.Res +"\n"
-				dot_1 = eje.Dot1
-				dot_2 = eje.Dot2
-				//dot_2 = eje.Dot2
-				// dot3 = eje.Dot3
-				// dot4 = eje.Dot4
+				respuesta += strconv.Itoa(entrada.I) + ")" + eje.Res + "\n"
 			}
 			entrada.I++
 		}
-		r := Structs.Resp{Res: respuesta, Dot1: dot_1, Dot2: dot_2}
+		r := Structs.Resp{Res: respuesta}
 		r.U = Files_System.UsuarioL
 
 		json.NewEncoder(writer).Encode(r)
@@ -126,7 +114,7 @@ func main() {
 
 	router.PathPrefix("/Reportes/").Handler(http.StripPrefix("/Reportes/", http.FileServer(http.Dir("./Reportes/"))))
 
-	direccion := ":8080" // Como cadena, no como entero; porque representa una dirección
+	direccion := ":8080" // Como cadena, no como entero; porque representa una direcciÃ³n
 	fmt.Println("Servidor listo escuchando en " + direccion)
 	log.Fatal(http.ListenAndServe(direccion, router))
 }

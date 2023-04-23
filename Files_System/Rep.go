@@ -194,7 +194,7 @@ func disk() Structs.Resp {
 			//fmt.Println("dot", "-T"+Extrep, "Reportes/"+nombreD+".dot", "-o", "Reportes/"+nombreD+"."+ext)
 			//fmt.Println("dot", "-T"+ext, "Reportes/"+nombreD+".dot", "-o", Dirrep+nombreD+"."+ext)
 			
-			return Structs.Resp{Res: "SE GENERO EL REPORTE DISK", Dot1:dotS}
+			return Structs.Resp{Res: "SE GENERO EL REPORTE DISK", Dot:dotS}
 		}
 		return Structs.Resp{Res: "DISCO INEXISTENTE"}
 	}
@@ -289,7 +289,7 @@ func tree() Structs.Resp {
 		}
 		return Structs.Resp{Res: "DISCO INEXISTENTE"}
 	}
-	return Structs.Resp{Res: "NO SE HA ENCONTRADO ALGUNA MONTURA CON EL ID: " + Idrep, Dot3:dotS}
+	return Structs.Resp{Res: "NO SE HA ENCONTRADO ALGUNA MONTURA CON EL ID: " + Idrep, Dot:dotS}
 }
 
 func treeBlock(pos int, typ int, file *os.File) string {
@@ -580,7 +580,7 @@ func sbR() Structs.Resp {
 				fmt.Printf("%s", errD)
 			}
 
-			return Structs.Resp{Res: "SE GENERO EL REPORTE SB", Dot2:dotS}
+			return Structs.Resp{Res: "SE GENERO EL REPORTE SB", Dot:dotS}
 		}
 		return Structs.Resp{Res: "DISCO INEXISTENTE"}
 	}
@@ -680,7 +680,7 @@ func fileR() Structs.Resp {
 				}
 
 				file.Close()
-				return Structs.Resp{Res: "SE GENERO EL REPORTE FILE DE " + rutaS[len(rutaS)-1], Dot4:dotS}
+				return Structs.Resp{Res: "SE GENERO EL REPORTE FILE DE " + rutaS[len(rutaS)-1], Dot:dotS}
 			}
 			return Structs.Resp{Res: "DISCO INEXISTENTE"}
 		}

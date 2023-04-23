@@ -1,9 +1,20 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+
+import Login_ from "./Src/Object.js";
 import "../Styles/Login.css";
 
 function Login() {
+    /* crear un estado local para guardar el valor de los inputs */
+    const [idParticion, setIdParticion] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const handleIdParticionChange = (event) => {
+        const newText = event.target.value; // Obtener el nuevo valor del textarea
+        setIdParticion(newText); // Actualizar el estado local con el nuevo valor del textarea
+    };
 
     const handleEmailChange = (event) => {
         const newText = event.target.value; // Obtener el nuevo valor del textarea
@@ -15,20 +26,77 @@ function Login() {
         setPassword(newText); // Actualizar el estado local con el nuevo valor del textarea
     };
 
-    const handleSubmit = (event) => {
+    const limpiarVariables = () => {
+        setIdParticion("");
+        setEmail("");
+        setPassword("");
+    };
+    
+    //* Ahora creamos la función para enviar los datos de inicio de sesión al servidor
+    //* Y actualizar el objeto user para poder realizar el logout
+    
+    var logeo = new Login_();
+    const navigate = useNavigate();
+
+    const iniciarSesion = (event) => {
         event.preventDefault();
         // Lógica para enviar los datos de inicio de sesión al servidor y actualizar el objeto entrada
+        let comando = ["login >id=" + idParticion + " >user=" + email + " >pwd=" + password];
+        let datos = logeo.entrada;
+        datos.comandos = comando;
+        axios.post("http://localhost:8080/Exec", datos)
+        .then((respuesta) => {
+            logeo.updateUsuario(respuesta.data.usuario) //* Actualizamos el usuario
+            console.log(respuesta)
+            if(respuesta.data.usuario.login){
+                if (respuesta.data.res === "0)YA HAY UNA SESION ACTIVA\n"){
+                    alert("Ya existe una sesión activa");
+                    limpiarVariables();
+                }else{
+                    navigate("/Editores")
+                    limpiarVariables();
+                }
+            }else{
+                alert("Usuario/Particion/Contraseña incorrectos");
+                limpiarVariables();
+            }
+        }).catch((err) => {
+            console.error("Error:", err);
+            alert("Error al iniciar sesión.");
+        });
+
     };
+
+    const logout = () => {
+        //event.preventDefault();
+        let datos = logeo.entrada;
+        datos.comandos = ["logout"];
+        axios.post("http://localhost:8080/Exec", datos)
+        .then((respuesta) => {
+            logeo.updateUsuario(respuesta.data.usuario) //* Actualizamos el usuario
+           
+            alert("No se encontró una sesión activa");
+            limpiarVariables();
+
+        }).catch((err) => {
+            console.error("Error:", err);
+            alert("Error al cerrar la sesión.");
+        });
+
+    }
+
+
 
     return (
         <>
             <div className="login-container">
-                <form onSubmit={handleSubmit}>
+                <form>
                     <h1>Iniciar sesión</h1>
                     <label htmlFor="id">ID Particion:</label>
                     <input
                         type="text"
                         id="idParticion"
+                        onChange={handleIdParticionChange}
                         required
                     />
                     <label htmlFor="email">Usuario:</label>
@@ -47,8 +115,8 @@ function Login() {
                         onChange={handlePasswordChange}
                         required
                     />
-                    <button type="submit">Iniciar sesión</button>
-                    {/* <button type="submit">Cerrar Sesion</button> */}
+                    <button onClick={iniciarSesion} type="submit">Iniciar sesión</button>
+                    <button onClick={logout} type="submit">Cerrar Sesion</button>
                 </form>
             </div>
         </>
