@@ -30,7 +30,7 @@ type Exec struct {
 	Commands []string `json:"comandos"`
 	IdU      int32    `json:"idU"`
 	IdG      int32    `json:"idG"`
-	IdMount  string   `json:"idMoun"`
+	IdMount  string   `json:"idMount"`
 	NombreU  string   `json:"nombreU"`
 	Login    bool     `json:"login"`
 	I        int      `json:"i"`

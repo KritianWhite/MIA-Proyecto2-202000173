@@ -67,6 +67,8 @@ func main() {
 			json.NewEncoder(writer).Encode(Structs.Inicio{Res: "Error en la entrada"})
 		}
 
+		fmt.Println("--->",entrada)
+
 		Files_System.UsuarioL = Structs.Usuario{
 			IdU:     entrada.IdU,
 			IdG:     entrada.IdG,

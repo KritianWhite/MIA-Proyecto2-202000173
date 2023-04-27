@@ -1,6 +1,6 @@
 export default class Login {
   entrada = {
-    comandos: "",
+    comandos: [],
     idU: 0,
     idG: 0,
     idMount: " ",
@@ -39,6 +39,6 @@ export default class Login {
     this.entrada.login = user.login;
 
     sessionStorage.setItem("user", JSON.stringify(this.entrada));
-    console.log("Entrada: ", JSON.parse(sessionStorage.getItem("user")));
+    //console.log("Entrada: ", JSON.parse(sessionStorage.getItem("user")));
   }
 }

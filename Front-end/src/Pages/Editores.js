@@ -10,6 +10,8 @@ export default function Principal() {
 
     //* Primeramente mostramos el contenido del archivo en el text area Entrada
     const [archivo, setArchivo] = useState("");
+    const [response, setResponse] = useState("");
+
     const leerArchivo = (event) => {
         const archivo = event.target.files[0];
         const reader = new FileReader();
@@ -33,11 +35,10 @@ export default function Principal() {
     //console.log(comandos);
 
     //* Ahora hacemos la peticion al servidor y recibimos la respuesta
-    const [response, setResponse] = useState("");
     var logeo = new Login();
 
     const enviar_Exec = () => {
-        let datos = logeo.entrada;
+        const datos = logeo.entrada;
         datos.comandos = comandos;
         console.log("Enviar Json: ", datos)
         axios.post("http://localhost:8080/Exec", datos)
