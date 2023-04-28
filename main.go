@@ -77,6 +77,7 @@ func main() {
 			Login:   entrada.Login,
 		}
 		respuesta := ""
+		dot := ""
 		for _, s := range entrada.Commands {
 			fmt.Println(s)
 			if s == "pause" {
@@ -89,10 +90,11 @@ func main() {
 			eje := Files_System.Lector(s)
 			if eje.Res != "" {
 				respuesta += strconv.Itoa(entrada.I) + ")" + eje.Res + "\n"
+				dot = eje.Dot
 			}
 			entrada.I++
 		}
-		r := Structs.Resp{Res: respuesta}
+		r := Structs.Resp{Res: respuesta, Dot: dot}
 		r.U = Files_System.UsuarioL
 
 		json.NewEncoder(writer).Encode(r)

@@ -30,6 +30,10 @@ export default class Login {
     return this.entrada;
   }
 
+  getLogin(){
+    return this.entrada.login;
+  }
+
   updateUsuario(user) {
     this.entrada.comandos = "";
     this.entrada.idU = user.id_u;

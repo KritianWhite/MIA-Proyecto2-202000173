@@ -285,11 +285,11 @@ func tree() Structs.Resp {
 			}
 			//mt.Println("dot", "-T"+Extrep, "Reportes/"+nombreD+".dot", "-o", "Reportes/"+nombreD + "." + ext)
 			//fmt.Println("dot", "-T"+ext, "Reportes/"+nombreD+".dot", "-o", Dirrep+nombreD + "." + ext)
-			return Structs.Resp{Res: "SE GENERO EL REPORTE TREE"}
+			return Structs.Resp{Res: "SE GENERO EL REPORTE TREE", Dot:dotS}
 		}
 		return Structs.Resp{Res: "DISCO INEXISTENTE"}
 	}
-	return Structs.Resp{Res: "NO SE HA ENCONTRADO ALGUNA MONTURA CON EL ID: " + Idrep, Dot:dotS}
+	return Structs.Resp{Res: "NO SE HA ENCONTRADO ALGUNA MONTURA CON EL ID: " + Idrep}
 }
 
 func treeBlock(pos int, typ int, file *os.File) string {

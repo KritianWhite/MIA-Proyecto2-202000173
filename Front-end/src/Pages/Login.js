@@ -31,10 +31,10 @@ function Login() {
         setEmail("");
         setPassword("");
     };
-    
+
     //* Ahora creamos la función para enviar los datos de inicio de sesión al servidor
     //* Y actualizar el objeto user para poder realizar el logout
-    
+
     var logeo = new Login_();
     const navigate = useNavigate();
 
@@ -45,46 +45,27 @@ function Login() {
         let datos = logeo.entrada;
         datos.comandos = comando;
         axios.post("http://localhost:8080/Exec", datos)
-        .then((respuesta) => {
-            logeo.updateUsuario(respuesta.data.usuario) //* Actualizamos el usuario
-            console.log(respuesta)
-            if(respuesta.data.usuario.login){
-                if (respuesta.data.res === "0)YA HAY UNA SESION ACTIVA\n"){
-                    alert("Ya existe una sesión activa");
+            .then((respuesta) => {
+                logeo.updateUsuario(respuesta.data.usuario) //* Actualizamos el usuario
+                console.log(respuesta)
+                if (respuesta.data.usuario.login) {
+                    if (respuesta.data.res === "0)YA HAY UNA SESION ACTIVA\n") {
+                        limpiarVariables();
+                        return alert("Ya existe una sesión activa");
+                    } else {
+                        limpiarVariables();
+                        return navigate("/Editores")
+                    }
+                } else {
                     limpiarVariables();
-                }else{
-                    navigate("/Editores")
-                    limpiarVariables();
+                    return alert("Usuario/Particion/Contraseña incorrectos");
                 }
-            }else{
-                alert("Usuario/Particion/Contraseña incorrectos");
-                limpiarVariables();
-            }
-        }).catch((err) => {
-            console.error("Error:", err);
-            alert("Error al iniciar sesión.");
-        });
+            }).catch((err) => {
+                console.error("Error:", err);
+                return alert("Error al recibir la petición del servidor.");
+            });
 
     };
-
-    const logout = () => {
-        //event.preventDefault();
-        let datos = logeo.entrada;
-        datos.comandos = ["logout"];
-        axios.post("http://localhost:8080/Exec", datos)
-        .then((respuesta) => {
-            logeo.updateUsuario(respuesta.data.usuario) //* Actualizamos el usuario
-           
-            alert("No se encontró una sesión activa");
-            limpiarVariables();
-
-        }).catch((err) => {
-            console.error("Error:", err);
-            alert("Error al cerrar la sesión.");
-        });
-
-    }
-
 
 
     return (
@@ -116,7 +97,7 @@ function Login() {
                         required
                     />
                     <button onClick={iniciarSesion} type="submit">Iniciar sesión</button>
-                    <button onClick={logout} type="submit">Cerrar Sesion</button>
+                    {/* <button onClick={logout} type="submit">Cerrar Sesion</button> */}
                 </form>
             </div>
         </>
