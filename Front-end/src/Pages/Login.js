@@ -44,7 +44,7 @@ function Login() {
         let comando = ["login >id=" + idParticion + " >user=" + email + " >pwd=" + password];
         let datos = logeo.entrada;
         datos.comandos = comando;
-        axios.post("http://localhost:8080/Exec", datos)
+        axios.post("http://3.145.14.213:8080/Exec", datos)
             .then((respuesta) => {
                 logeo.updateUsuario(respuesta.data.usuario) //* Actualizamos el usuario
                 console.log(respuesta)

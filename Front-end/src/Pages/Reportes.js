@@ -20,7 +20,7 @@ export default function Reportes() {
     const enviar_Exec = () => {
         const datos = logeo.entrada;
         datos.comandos = [valor];
-        axios.post("http://localhost:8080/Exec", datos)
+        axios.post("http://3.145.14.213:8080/Exec", datos)
             .then((respuesta) => {
                 //console.log(respuesta.data.dot)
                 if(respuesta.data.dot === undefined || respuesta.data.dot === null || respuesta.data.dot === ""){

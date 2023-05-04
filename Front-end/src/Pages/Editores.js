@@ -42,7 +42,7 @@ export default function Principal() {
         const datos = logeo.entrada;
         datos.comandos = comandos;
         console.log("Enviar Json: ", datos)
-        axios.post("http://localhost:8080/Exec", datos)
+        axios.post("http://3.145.14.213:8080/Exec", datos)
             .then((respuesta) => {
                 setResponse(respuesta.data.res)
                 let usuario = respuesta.data.usuario;
@@ -63,7 +63,7 @@ export default function Principal() {
         if (logeo.getLogin() === false) {
             return alert("No hay una sesión activa")
         } else {
-            axios.post("http://localhost:8080/Exec", datos)
+            axios.post("http://3.145.14.213:8080/Exec", datos)
                 .then((respuesta) => {
                     logeo.updateUsuario(respuesta.data.usuario) //* Actualizamos el usuario
                     if (respuesta.data.usuario.login === true) {
